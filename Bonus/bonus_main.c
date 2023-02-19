@@ -12,6 +12,13 @@
 
 #include "bonus.h"
 
+void	exit_error(char *message)
+{
+	if (message != NULL)
+		ft_putstr(message, 2);
+	exit(1);
+}
+
 static void	exec_action(t_stack **stack_a, t_stack **stack_b, char *str)
 {
 	if (!ft_strcmp(str, "sa\n"))
@@ -62,17 +69,17 @@ int	main(int ac, char **av)
 {
 	int		*arr;
 	int		stack_size;
+	char	**args;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
 	if (ac < 2)
 		return (0);
-	if (!is_correct_input(av))
-		exit_error("Error\n");
-	stack_a = fill_stack(ac, av);
+	args = is_correct_input(av);
+	stack_a = fill_stack(args);
 	stack_b = NULL;
 	stack_size = ft_stacksize(stack_a);
-	arr = fill_ref_array(stack_size, av);
+	arr = fill_ref_array(stack_size, args);
 	sort_ref_array(arr, stack_size);
 	read_and_exec_actions(&stack_a, &stack_b);
 	if (!stack_b && is_sorted(stack_a) == 1)

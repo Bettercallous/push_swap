@@ -28,7 +28,6 @@ typedef struct s_stack
 int		ft_isdigit(int c);
 int		is_sorted(t_stack *stack);
 char	**is_correct_input(char **av);
-int		ft_strcmp(const char *s1, const char *s2);
 long	ft_atoi(const char *str);
 void	exit_error(char *message);
 void	pa(t_stack **stack_a, t_stack **stack_b);
@@ -64,6 +63,8 @@ void	sort_ref_array(int *tab, int size);
 int		*fill_ref_array(int size, char **av);
 int		max_value(t_stack **stack_a);
 char	**ft_split(char const *s, char c);
-char	*ft_strjoin(char const *s1, char const *s2);
+int		ft_strlen(const char *str);
+int		ft_strlcat(char *dst, const char *src, int dstsize);
+void	free_strs(char **str);
 
 #endif

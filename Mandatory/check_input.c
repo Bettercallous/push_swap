@@ -12,6 +12,31 @@
 
 #include "push_swap.h"
 
+static int	get_len(char **av)
+{
+	int		i;
+	int		j;
+	int		len;
+	char	**tmp;
+
+	i = 0;
+	len = 0;
+	while (av[++i])
+	{
+		if (!*av[i])
+			exit_error("Error\n");
+		tmp = ft_split(av[i], ' ');
+		j = 0;
+		while (tmp[j])
+		{
+			len += ft_strlen(tmp[j]) + 1;
+			j++;
+		}
+		free_strs(tmp);
+	}
+	return (len);
+}
+
 static int	arg_is_number(char **av)
 {
 	int	i;
@@ -52,7 +77,7 @@ static int	have_duplicates(char **av)
 	return (0);
 }
 
-static char	*parse_input(char **av)
+static char	*parse_input(char **av, int *len)
 {
 	int		i;
 	int		j;
@@ -60,36 +85,39 @@ static char	*parse_input(char **av)
 	char	**tmp;
 
 	i = 0;
-	args = NULL;
+	*len = get_len(av);
+	args = malloc(*len);
+	if (!args)
+		return (NULL);
+	args[0] = '\0';
 	while (av[++i])
 	{
 		if (!*av[i])
 			exit_error("Error\n");
 		tmp = ft_split(av[i], ' ');
-		args = ft_strjoin(args, tmp[0]);
-		args = ft_strjoin(args, " ");
-		j = 0;
+		j = -1;
 		while (tmp[++j])
 		{
-			args = ft_strjoin(args, tmp[j]);
-			args = ft_strjoin(args, " ");
+			ft_strlcat(args, tmp[j], *len);
+			ft_strlcat(args, " ", *len);
 		}
-		free(tmp);
+		free_strs(tmp);
 	}
 	return (args);
 }
 
 char	**is_correct_input(char **av)
 {
+	int		len;
 	char	*args;
 	char	**all_args;
 
-	args = parse_input(av);
+	args = parse_input(av, &len);
 	all_args = ft_split(args, ' ');
 	free(args);
 	if (!arg_is_number(all_args))
-		return (NULL);
+		exit_error("Error\n");
 	if (have_duplicates(all_args))
-		return (NULL);
+		exit_error("Error\n");
 	return (all_args);
 }

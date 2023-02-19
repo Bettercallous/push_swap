@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "bonus.h"
 
 t_stack	*ft_newstack(int value)
 {
@@ -24,16 +24,16 @@ t_stack	*ft_newstack(int value)
 	return (new);
 }
 
-t_stack	*fill_stack(int ac, char **av)
+t_stack	*fill_stack(char **av)
 {
 	int			i;
 	long int	nb;
 	t_stack		*stack_a;
 
-	i = 1;
+	i = 0;
 	nb = 0;
 	stack_a = NULL;
-	while (i < ac)
+	while (av[i])
 	{
 		nb = ft_atoi(av[i]);
 		if (nb < INT_MIN || nb > INT_MAX)

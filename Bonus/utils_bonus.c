@@ -58,9 +58,24 @@ long	ft_atoi(const char *str)
 	return (res * sign);
 }
 
-void	exit_error(char *message)
+int	ft_strlcat(char *dst, const char *src, int dstsize)
 {
-	if (message != NULL)
-		ft_putstr(message, 2);
-	exit(1);
+	int	i;
+	int	slen;
+	int	dlen;
+
+	if (dstsize == 0)
+		return (ft_strlen(src));
+	dlen = ft_strlen(dst);
+	slen = ft_strlen(src);
+	if (dstsize <= dlen)
+		return (dstsize + slen);
+	i = 0;
+	while (src[i] && i < dstsize - dlen - 1)
+	{
+		dst[dlen + i] = src[i];
+		i++;
+	}
+	dst[i + dlen] = '\0';
+	return (dlen + slen);
 }

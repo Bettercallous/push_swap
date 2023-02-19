@@ -6,7 +6,7 @@
 #    By: oubelhaj <oubelhaj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 19:07:32 by oubelhaj          #+#    #+#              #
-#    Updated: 2023/02/19 02:23:24 by oubelhaj         ###   ########.fr        #
+#    Updated: 2023/02/19 23:27:43 by oubelhaj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRCS =  ./Mandatory/main.c \
 		./Mandatory/big_sort.c \
 		./Mandatory/big_sort_utils.c \
 		./Mandatory/ft_split.c \
-		./Mandatory/ft_strjoin.c \
+		./Mandatory/utils2.c \
 
 B_SRCS = ./Bonus/bonus_main.c \
 		./Bonus/check_input_bonus.c \
@@ -40,6 +40,7 @@ B_SRCS = ./Bonus/bonus_main.c \
 		./Bonus/utils_bonus.c \
 		./Bonus/utils2_bonus.c \
 		./Bonus/swap_actions_bonus.c \
+		./Bonus/ft_split_bonus.c \
 		
 OBJS = ${SRCS:.c=.o}
 

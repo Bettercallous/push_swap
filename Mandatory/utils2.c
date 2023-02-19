@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oubelhaj <oubelhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 23:04:03 by oubelhaj          #+#    #+#             */
-/*   Updated: 2023/02/19 02:07:40 by oubelhaj         ###   ########.fr       */
+/*   Updated: 2023/02/19 23:00:09 by oubelhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_strlen(const char *str)
+int	ft_strlen(const char *str)
 {
 	int	i;
 
@@ -24,30 +24,37 @@ static int	ft_strlen(const char *str)
 	return (i);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int	ft_strlcat(char *dst, const char *src, int dstsize)
 {
-	int		i;
-	int		s1len;
-	int		s2len;
-	char	*str;
+	int	i;
+	int	slen;
+	int	dlen;
+
+	if (dstsize == 0)
+		return (ft_strlen(src));
+	dlen = ft_strlen(dst);
+	slen = ft_strlen(src);
+	if (dstsize <= dlen)
+		return (dstsize + slen);
+	i = 0;
+	while (src[i] && i < dstsize - dlen - 1)
+	{
+		dst[dlen + i] = src[i];
+		i++;
+	}
+	dst[i + dlen] = '\0';
+	return (dlen + slen);
+}
+
+void	free_strs(char **str)
+{
+	int	i;
 
 	i = 0;
-	if (!s1 && !s2)
-		return (NULL);
-	else if (!s1 && s2)
-		return (strdup(s2));
-	else if (s1 && !s2)
-		return (strdup(s1));
-	s1len = ft_strlen(s1);
-	s2len = ft_strlen(s2);
-	str = malloc(s1len + s2len + 1);
-	if (!str)
-		return (NULL);
-	while (i < s1len)
-		str[i++] = *s1++;
-	i = 0;
-	while (i < s2len)
-		str[i++ + s1len] = *s2++;
-	str[s1len + s2len] = '\0';
-	return (str);
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
 }

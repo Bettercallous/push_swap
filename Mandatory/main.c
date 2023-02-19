@@ -85,8 +85,6 @@ int	main(int ac, char **av)
 	if (ac < 2)
 		return (0);
 	args = is_correct_input(av);
-	if (!args)
-		exit_error("Error\n");
 	stack_a = fill_stack(args);
 	stack_b = NULL;
 	stack_size = ft_stacksize(stack_a);
@@ -95,6 +93,5 @@ int	main(int ac, char **av)
 	set_algo(&stack_a, &stack_b, stack_size, arr);
 	free_stack(&stack_a);
 	free_stack(&stack_b);
-	system("leaks push_swap");
 	return (0);
 }

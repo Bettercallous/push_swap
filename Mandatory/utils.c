@@ -12,16 +12,6 @@
 
 #include "push_swap.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
-{
-	size_t	i;
-
-	i = 0;
-	while ((s1[i] == s2[i]) && (s1[i] || s2[i]))
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-}
-
 int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
@@ -44,6 +34,10 @@ long	ft_atoi(const char *str)
 	i = 0;
 	sign = 1;
 	res = 0;
+	if (!str)
+		return (0);
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')

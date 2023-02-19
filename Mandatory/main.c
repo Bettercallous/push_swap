@@ -44,7 +44,7 @@ int	*fill_ref_array(int size, char **av)
 		return (0);
 	while (i < size)
 	{
-		arr[i] = ft_atoi(av[i + 1]);
+		arr[i] = ft_atoi(av[i]);
 		i++;
 	}
 	return (arr);
@@ -77,21 +77,24 @@ void	sort_ref_array(int *tab, int size)
 int	main(int ac, char **av)
 {
 	int		*arr;
+	char	**args;
 	int		stack_size;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
 	if (ac < 2)
 		return (0);
-	if (!is_correct_input(av))
+	args = is_correct_input(av);
+	if (!args)
 		exit_error("Error\n");
-	stack_a = fill_stack(ac, av);
+	stack_a = fill_stack(args);
 	stack_b = NULL;
 	stack_size = ft_stacksize(stack_a);
-	arr = fill_ref_array(stack_size, av);
+	arr = fill_ref_array(stack_size, args);
 	sort_ref_array(arr, stack_size);
 	set_algo(&stack_a, &stack_b, stack_size, arr);
 	free_stack(&stack_a);
 	free_stack(&stack_b);
+	system("leaks push_swap");
 	return (0);
 }

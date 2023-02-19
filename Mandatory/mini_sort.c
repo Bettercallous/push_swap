@@ -37,9 +37,11 @@ static void	sort_4(t_stack **stack_a, t_stack **stack_b)
 {
 	shift_min_4_to_top(stack_a);
 	if (!is_sorted(*stack_a))
+	{
 		pb(stack_a, stack_b);
-	sort_3(stack_a);
-	pa(stack_a, stack_b);
+		sort_3(stack_a);
+		pa(stack_a, stack_b);
+	}
 }
 
 static void	sort_5(t_stack **stack_a, t_stack **stack_b)

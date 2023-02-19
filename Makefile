@@ -6,7 +6,7 @@
 #    By: oubelhaj <oubelhaj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 19:07:32 by oubelhaj          #+#    #+#              #
-#    Updated: 2023/02/16 03:08:40 by oubelhaj         ###   ########.fr        #
+#    Updated: 2023/02/19 02:23:24 by oubelhaj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,8 @@ SRCS =  ./Mandatory/main.c \
 		./Mandatory/mini_sort_utils.c \
 		./Mandatory/big_sort.c \
 		./Mandatory/big_sort_utils.c \
+		./Mandatory/ft_split.c \
+		./Mandatory/ft_strjoin.c \
 
 B_SRCS = ./Bonus/bonus_main.c \
 		./Bonus/check_input_bonus.c \
@@ -47,7 +49,7 @@ CC = cc
 
 BONUS = checker
 
-CFLAGS = -Wall -Wextra -Werror -I ./Includes
+CFLAGS = -Wall -Wextra -Werror -I ./Includes #-g -fsanitize=address
 
 .c.o	:
 	@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)

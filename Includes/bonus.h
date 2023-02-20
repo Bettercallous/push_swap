@@ -63,6 +63,6 @@ char	**ft_split(char const *s, char c);
 void	free_strs(char **str);
 int		ft_strlcat(char *dst, const char *src, int dstsize);
 int		ft_strcmp(const char *s1, const char *s2);
-void	stack_add_last(t_stack **stack, t_stack *new);
+void	stack_add_last(t_stack **stack, t_stack *new_node);
 
 #endif

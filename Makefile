@@ -6,7 +6,7 @@
 #    By: oubelhaj <oubelhaj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 19:07:32 by oubelhaj          #+#    #+#              #
-#    Updated: 2023/02/19 23:27:43 by oubelhaj         ###   ########.fr        #
+#    Updated: 2023/02/20 01:14:55 by oubelhaj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ CC = cc
 
 BONUS = checker
 
-CFLAGS = -Wall -Wextra -Werror -I ./Includes #-g -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -I ./Includes
 
 .c.o	:
 	@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
@@ -78,4 +78,4 @@ fclean	:	clean
 
 re : fclean all
 
-.PHONY : all clean fclean re
+.PHONY : all clean fclean re bonus

@@ -50,7 +50,7 @@ int		min_index_of_4(t_stack *stack);
 void	shift_min_4_to_top(t_stack **stack_a);
 int		ft_stacksize(t_stack *stack);
 void	free_stack(t_stack **stack);
-void	stack_add_last(t_stack **stack, t_stack *new);
+void	stack_add_last(t_stack **stack, t_stack *new_node);
 void	ft_putstr(char *str, int fd);
 t_stack	*ft_newstack(int value);
 t_stack	*get_stack_before_last(t_stack *stack);

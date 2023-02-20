@@ -34,14 +34,14 @@ t_stack	*ft_stacklast(t_stack *stack)
 	return (stack);
 }
 
-void	stack_add_last(t_stack **stack, t_stack *new)
+void	stack_add_last(t_stack **stack, t_stack *new_node)
 {
-	if (!new)
+	if (!new_node)
 		return ;
 	if (*stack != NULL)
-		ft_stacklast(*stack)->next = new;
+		ft_stacklast(*stack)->next = new_node;
 	else
-		*stack = new;
+		*stack = new_node;
 }
 
 void	free_stack(t_stack **stack)

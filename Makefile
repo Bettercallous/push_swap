@@ -6,7 +6,7 @@
 #    By: oubelhaj <oubelhaj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 19:07:32 by oubelhaj          #+#    #+#              #
-#    Updated: 2023/02/20 01:14:55 by oubelhaj         ###   ########.fr        #
+#    Updated: 2023/02/20 01:59:53 by oubelhaj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ CC = cc
 
 BONUS = checker
 
-CFLAGS = -Wall -Wextra -Werror -I ./Includes
+CFLAGS = -Wall -Wextra -Werror
 
 .c.o	:
 	@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)

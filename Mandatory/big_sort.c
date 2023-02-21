@@ -6,7 +6,7 @@
 /*   By: oubelhaj <oubelhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 15:09:20 by oubelhaj          #+#    #+#             */
-/*   Updated: 2023/02/21 05:48:46 by oubelhaj         ###   ########.fr       */
+/*   Updated: 2023/02/21 08:41:01 by oubelhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ static int	sort_chunks(t_stack **stack_a, t_stack **stack_b, int size)
 	int	chunk;
 
 	count = 0;
-	chunk = 15;
+	chunk = 13;
 	if (size >= 500)
-		chunk = 40;
+		chunk = 35;
 	while (*stack_a)
 	{
 		if ((*stack_a)->value < (count + chunk))

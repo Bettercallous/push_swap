@@ -6,7 +6,7 @@
 /*   By: oubelhaj <oubelhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 21:46:30 by oubelhaj          #+#    #+#             */
-/*   Updated: 2023/02/20 01:12:58 by oubelhaj         ###   ########.fr       */
+/*   Updated: 2023/02/21 07:05:13 by oubelhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,15 +76,3 @@ void	free_strs(char **str)
 	}
 	free(str);
 }
-
-// int	ft_strlen(const char *str)
-// {
-// 	int	i;
-
-// 	if (!str)
-// 		return (0);
-// 	i = 0;
-// 	while (str[i])
-// 		i++;
-// 	return (i);
-// }

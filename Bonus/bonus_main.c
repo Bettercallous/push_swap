@@ -47,7 +47,7 @@ static void	exec_action(t_stack **stack_a, t_stack **stack_b, char *str)
 		exit_error("Error\n");
 }
 
-static void	read_and_exec_actions(t_stack **stack_a, t_stack **stack_b)
+static void	read_actions(t_stack **stack_a, t_stack **stack_b)
 {
 	int		i;
 	char	*tmp;
@@ -81,7 +81,7 @@ int	main(int ac, char **av)
 	stack_size = ft_stacksize(stack_a);
 	arr = fill_ref_array(stack_size, args);
 	sort_ref_array(arr, stack_size);
-	read_and_exec_actions(&stack_a, &stack_b);
+	read_actions(&stack_a, &stack_b);
 	if (!stack_b && is_sorted(stack_a) == 1)
 		ft_putstr("OK\n", 1);
 	else

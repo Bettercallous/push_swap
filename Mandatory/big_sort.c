@@ -6,7 +6,7 @@
 /*   By: oubelhaj <oubelhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 15:09:20 by oubelhaj          #+#    #+#             */
-/*   Updated: 2023/02/17 01:07:49 by oubelhaj         ###   ########.fr       */
+/*   Updated: 2023/02/21 05:48:46 by oubelhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	sort_chunks(t_stack **stack_a, t_stack **stack_b, int size)
 {
-	int	chunk;
 	int	count;
+	int	chunk;
 
 	count = 0;
 	chunk = 15;
@@ -23,12 +23,12 @@ static int	sort_chunks(t_stack **stack_a, t_stack **stack_b, int size)
 		chunk = 40;
 	while (*stack_a)
 	{
-		if ((*stack_a)->value - count < chunk)
+		if ((*stack_a)->value < (count + chunk))
 		{
-			count++;
 			pb(stack_a, stack_b);
-			if ((*stack_b) && (*stack_b)->value < count)
-				rb(stack_b);
+			if ((*stack_b) && (*stack_b)->value < (count + 1))
+					rb(stack_b);
+			count++;
 		}
 		else
 			ra(stack_a);
@@ -36,19 +36,19 @@ static int	sort_chunks(t_stack **stack_a, t_stack **stack_b, int size)
 	return (count);
 }
 
-static void	move_back_to_a(t_stack **stack_a, t_stack **stack_b, int count)
+static void	move_back_to_a(t_stack **stack_a, t_stack **stack_b, int nbr)
 {
-	int	rot;
+	int	rotation;
 
-	rot = 0;
-	while (count--)
+	rotation = 0;
+	while (nbr--)
 	{
-		rot = get_rotation(*stack_b, count);
-		if (rot == 1)
-			while ((*stack_b)->value != count)
+		rotation = get_rotation(*stack_b, nbr);
+		if (rotation == 1)
+			while ((*stack_b)->value != nbr)
 				rb(stack_b);
-		if (rot == -1)
-			while ((*stack_b)->value != count)
+		if (rotation == -1)
+			while ((*stack_b)->value != nbr)
 				rrb(stack_b);
 		pa(stack_a, stack_b);
 	}
